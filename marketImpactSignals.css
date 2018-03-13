@@ -1,0 +1,69 @@
+.marketImpactSignals .fxs_container {
+  border: 2px solid #8c8d91;
+  padding: 5px;
+}
+.marketImpactSignals .fxs_container .fxs_cell {
+  width: 18%;
+  float: left;
+  border: 1px solid #dddedf;
+  background-color: #f3f3f8;
+}
+.marketImpactSignals .fxs_container .fxs_cell:first-child {
+  width: 28%;
+}
+.marketImpactSignals .fxs_container .fxs_cell.fxs_active {
+  background-color: #f6dbc4;
+}
+.marketImpactSignals .fxs_container .fxs_cell p {
+  text-align: center;
+  line-height: 2rem;
+  margin: 0;
+  font-weight: 700;
+  line-height: 3rem;
+  font-size: 0.8rem;
+}
+.marketImpactSignals .fxs_container blockquote {
+  margin-top: 5rem;
+  padding-bottom: 0;
+}
+.marketImpactSignals .fxs_container .fxs_trigger p {
+  text-align: center;
+  line-height: 3rem;
+  margin-bottom: 0;
+}
+.marketImpactSignals .fxs_container .fxs_trigger p span {
+  font-size: 1.9rem;
+  font-weight: 400;
+  position: relative;
+  bottom: -0.2rem;
+}
+.marketImpactSignals .fxs_container .fxs_trigger.fxs_positive .fa {
+  color: #338473;
+}
+.marketImpactSignals .fxs_container .fxs_trigger.fxs_negative .fa {
+  color: #d25746;
+}
+.marketImpactSignals .fxs_container .fxs_trigger.fxs_active {
+  background-color: #f6dbc4;
+}
+.marketImpactSignals .fxs_container .collapse {
+  margin-top: 0;
+}
+.marketImpactSignals .fxs_container .collapse .fxs_content_panel.fxs_entryPlain_txt_small {
+  padding-top: 2rem;
+  margin-bottom: 0;
+}
+.marketImpactSignals .fxs_container .collapse .fxs_content_panel.fxs_entryPlain_txt_small p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.marketImpactSignals .fxs_container .fxs_btn.fxs_btn_content_toggle.fxs_btn_content_toggle_collapse.fxs_btn_block.btn.collapsed.fxs_btn_cta {
+  margin: 0;
+}
+.marketImpactSignals .fxs_container .fxs_btn.fxs_btn_content_toggle.fxs_btn_content_toggle_collapse.fxs_btn_block.btn.collapsed.fxs_btn_cta:hover,
+.marketImpactSignals .fxs_container .fxs_btn.fxs_btn_content_toggle.fxs_btn_content_toggle_collapse.fxs_btn_block.btn.collapsed.fxs_btn_cta.active {
+  color: white;
+}
+.marketImpactSignals .fxs_container .fxs_btn.fxs_btn_content_toggle.fxs_btn_content_toggle_collapse.fxs_btn_block.btn.collapsed.fxs_btn_cta span {
+  font-size: 1rem;
+}
