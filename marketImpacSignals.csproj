@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{26F19B23-5314-48F5-9E21-E8FC518C0B64}</ProjectGuid>
+    <ProjectGuid>{544A1CA0-42D3-473B-BC1D-CE57E331ADF6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
     <AssemblyName>ConsoleApplication</AssemblyName>
@@ -42,15 +42,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="backup.html" />
-    <Content Include="marketImpactSignals.css" />
-    <Content Include="marketImpactSignals.html" />
-    <Content Include="withlink.html" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
     <None Include=".git\COMMIT_EDITMSG" />
     <None Include=".git\config" />
     <None Include=".git\description" />
+    <None Include=".git\FETCH_HEAD" />
     <None Include=".git\HEAD" />
     <None Include=".git\hooks\applypatch-msg.sample" />
     <None Include=".git\hooks\commit-msg.sample" />
@@ -67,18 +64,46 @@
     <None Include=".git\logs\HEAD" />
     <None Include=".git\logs\refs\heads\master" />
     <None Include=".git\logs\refs\remotes\origin\master" />
+    <None Include=".git\objects\10\7bc21e2c4459c382f09f65722037b1ce63f714" />
+    <None Include=".git\objects\11\ba5e59ab502b242c8611e7f8e8eacfd0fe194f" />
+    <None Include=".git\objects\1a\56fe868cd13ae1eb9fcc6c530ab691f87f4780" />
+    <None Include=".git\objects\2b\eaa40a9f30785fa64808ebb5ea1b23f8d2e158" />
+    <None Include=".git\objects\2c\37989fa7c131fa3a1586b5858fdc6edf517f6c" />
+    <None Include=".git\objects\42\b2d8ccace36d061fc99b10377ce34bafb1a6ce" />
+    <None Include=".git\objects\66\842cf6fa5afb6573e083a001d968a0ab72e459" />
+    <None Include=".git\objects\81\253bcfec0490c39713c26d3253a1816f66fed1" />
+    <None Include=".git\objects\87\d408838222b5262883be2067adc2e627499b33" />
+    <None Include=".git\objects\8e\472c2b919bad785bf303244b0ab9282106254e" />
+    <None Include=".git\objects\8f\fe9976ac50d17bb14658a8b24c00a8eaa156f8" />
     <None Include=".git\objects\a1\f273f4b2d6f35980b2bf3d180ce82e14b5ad3e" />
+    <None Include=".git\objects\b3\818bb5df4d9896262aa3e627d54cb4b6af9a8b" />
+    <None Include=".git\objects\b5\6265426e1fd9f751ac81913d24629f8a0d82d9" />
     <None Include=".git\objects\ba\4306994b5966b7652274b0646a78fbd4ff3634" />
     <None Include=".git\objects\ba\cacc91022406a6a5a5e7ead0632d2a0f4f58a6" />
     <None Include=".git\objects\c6\819cb42f945d2d56da883a09bdc8ae0c1d6550" />
     <None Include=".git\objects\cd\e70a1f0ce5df9daf2853a89f8893ec4db68421" />
+    <None Include=".git\objects\d0\14f64c67f9dd4d662fb13ff44dff82e994d8bc" />
     <None Include=".git\objects\db\0512cf9394ee4773f0c603c0336fffc6824493" />
     <None Include=".git\objects\ea\320cb8e721bbea6e1e711165890eadbab431b9" />
+    <None Include=".git\objects\eb\55d4f21da384647ba245de97f6f7e42f2f5d44" />
+    <None Include=".git\objects\f0\0a2a632ce2eb62ae3484b97f3d5ef3268e5c1f" />
+    <None Include=".git\objects\f3\efc993a2a10c37b6cdf1de9d87b5988aaccc1f" />
+    <None Include=".git\ORIG_HEAD" />
     <None Include=".git\refs\heads\master" />
     <None Include=".git\refs\remotes\origin\master" />
+    <None Include=".vs\marketImpacSignals\v15\.suo" />
     <None Include="marketImpactSignals.less" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".git\ms-persist.xml" />
+    <Content Include="backup.html" />
+    <Content Include="marketImpactSignals.css" />
+    <Content Include="marketImpactSignals.html" />
+    <Content Include="withlink.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\lfs\objects\logs\" />
+    <Folder Include=".git\lfs\tmp\objects\" />
     <Folder Include=".git\objects\info\" />
     <Folder Include=".git\objects\pack\" />
     <Folder Include=".git\refs\tags\" />
