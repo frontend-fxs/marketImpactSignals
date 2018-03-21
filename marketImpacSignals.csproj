@@ -97,6 +97,7 @@
   <ItemGroup>
     <Content Include=".git\ms-persist.xml" />
     <Content Include="backup.html" />
+    <Content Include="index.html" />
     <Content Include="marketImpactSignals.css" />
     <Content Include="marketImpactSignals.html" />
     <Content Include="withlink.html" />
