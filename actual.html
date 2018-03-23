@@ -15,18 +15,18 @@
             if (data.EventDateId == eventDateId) {
                 console.log(data);
                 document.getElementById("standardDeviation").innerHTML = data.StandardDeviation;
-                document.getElementById("deviationId").style.backgroundColor = "#F6DBC4";
+                document.getElementById("deviationId").addClass('fxs_trigger');
+                document.getElementById("actualId").addClass('fxs_trigger');
                 if (data.StandardDeviation < negativeTrigger)
-                    document.getElementById("negativeTrigger").style.backgroundColor = "#F6DBC4";
+                    document.getElementById("negativeTrigger").addClass('fxs_trigger');
                 if (data.StandardDeviation > positiveTrigger)
-                    document.getElementById("positiveTrigger").style.backgroundColor = "#F6DBC4";
+                    document.getElementById("positiveTrigger").addClass('fxs_trigger');
             }
         };
         push.marketImpactSubscribe(SetStandardDeviationAndBoundaries);
 
     }, millisecondsToWait);
 </script>
-
 <style>
     .marquetImpactSignals .fxs_subsectionTitle {
         display: block;
@@ -148,14 +148,14 @@
                 GMT: 9:30
             </p>
         </div>
-        <div style="width:22%;" class="fxs_headCell fxs_trigger">
+        <div style="width:22%;" class="fxs_headCell" id="actualId">
             <p>
                 Actual: &#165;-1,153.2B
             </p>
         </div>
-        <div style="width:18%;" class="fxs_headCell fxs_trigger">
+        <div style="width:18%;" class="fxs_headCell" id="deviationId">
             <p>
-                Deviation: -1.11
+                Deviation: <span id="standardDeviation">?</span>
             </p>
         </div>
         <div style="width:20%;" class="fxs_headCell">
@@ -169,7 +169,7 @@
             </p>
         </blockquote>
         <div class="fxs_col_100">
-            <div class="fxs_col fxs_col_50">
+            <div class="fxs_col fxs_col_50" id="positiveTrigger">
                 <p>
                     <em>
                         Positive Trigger [BUY GBP/USD]:
@@ -188,7 +188,7 @@
                     </span>
                 </p>
             </div>
-            <div class="fxs_col fxs_col_50 fxs_trigger">
+            <div class="fxs_col fxs_col_50" id="negativeTrigger">
                 <p>
                     <em>
                         Negative Trigger [SELL GBP/USD]:
