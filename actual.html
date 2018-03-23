@@ -1,54 +1,189 @@
-<div class="fxs_hidden_s">
-    <h3 class="fxs_subsectionTitle" style="display:block;width:100%;padding:5px 15px;margin:0;background-color:#8C8D91;color:white;">
-        <a href="https://www.fxstreet.com/economic-calendar" data-gtmid="ecocalsignals-13" style="color:white;">Trading opportunities <span class="fa fa-angle-double-right"></span></a>
+<script>
+    var eventDateId = '134076a5-81aa-4bdc-8c48-fe7684fbf109'
+    var positiveTrigger = 0.048
+    var negativeTrigger = -0.36
+    console.log("Starting..")
+    var millisecondsToWait = 1000;
+    setTimeout(function () {
+        var config = {
+            tokenUrl: "https://authorization-qa-i3.azurewebsites.net/token",
+            httpPushServerUrl: "https://httppush-qa.fxstreet.com/signalr/hubs",
+            culture: "en-US"
+        };
+        var push = FXStreetPush.PushNotification.getInstance(config);
+        var SetStandardDeviationAndBoundaries = function (data) {
+            if (data.EventDateId == eventDateId) {
+                console.log(data);
+                document.getElementById("standardDeviation").innerHTML = data.StandardDeviation;
+                document.getElementById("deviationId").style.backgroundColor = "#F6DBC4";
+                if (data.StandardDeviation < negativeTrigger)
+                    document.getElementById("negativeTrigger").style.backgroundColor = "#F6DBC4";
+                if (data.StandardDeviation > positiveTrigger)
+                    document.getElementById("positiveTrigger").style.backgroundColor = "#F6DBC4";
+            }
+        };
+        push.marketImpactSubscribe(SetStandardDeviationAndBoundaries);
+
+    }, millisecondsToWait);
+</script>
+
+<style>
+    .marquetImpactSignals .fxs_subsectionTitle {
+        display: block;
+        width: 100%;
+        padding: 5px 15px;
+        margin: 0;
+        background-color: #8c8d91;
+        color: white;
+    }
+
+        .marquetImpactSignals .fxs_subsectionTitle a {
+            color: white;
+        }
+
+    .marquetImpactSignals .fxs_bordered_container {
+        border: 2px solid #8c8d91;
+        padding: 5px;
+    }
+
+        .marquetImpactSignals .fxs_bordered_container .fxs_headCell {
+            float: left;
+            border: 1px solid #dddedf;
+            background-color: #f3f3f8;
+        }
+
+            .marquetImpactSignals .fxs_bordered_container .fxs_headCell.fxs_trigger {
+                background-color: #f6dbc4;
+            }
+
+            .marquetImpactSignals .fxs_bordered_container .fxs_headCell p {
+                text-align: center;
+                margin: 0;
+                font-weight: 700;
+                line-height: 3rem;
+                font-size: 0.8rem;
+            }
+
+        .marquetImpactSignals .fxs_bordered_container blockquote {
+            margin-top: 5rem;
+            padding-bottom: 0;
+        }
+
+            .marquetImpactSignals .fxs_bordered_container blockquote p {
+                margin-bottom: 0;
+            }
+
+        .marquetImpactSignals .fxs_bordered_container .fxs_col_50 {
+            padding: 1rem 0;
+        }
+
+            .marquetImpactSignals .fxs_bordered_container .fxs_col_50.fxs_trigger {
+                background-color: #f6dbc4;
+            }
+
+            .marquetImpactSignals .fxs_bordered_container .fxs_col_50 p {
+                text-align: center;
+                margin-bottom: 0;
+                font-size: 0.9rem;
+            }
+
+                .marquetImpactSignals .fxs_bordered_container .fxs_col_50 p .fa-chevron-right {
+                    color: #338473;
+                }
+
+                .marquetImpactSignals .fxs_bordered_container .fxs_col_50 p .fa-chevron-left {
+                    color: #d25746;
+                }
+
+                .marquetImpactSignals .fxs_bordered_container .fxs_col_50 p .fxs_deviation {
+                    font-size: 1.9rem;
+                    font-weight: 400;
+                    position: relative;
+                    bottom: -0.2rem;
+                }
+
+        .marquetImpactSignals .fxs_bordered_container .collapse {
+            margin-top: 0;
+        }
+
+            .marquetImpactSignals .fxs_bordered_container .collapse .fxs_content_panel.fxs_entryPlain_txt_small {
+                padding-top: 2rem;
+                margin-bottom: 0;
+            }
+
+                .marquetImpactSignals .fxs_bordered_container .collapse .fxs_content_panel.fxs_entryPlain_txt_small .fxs_col_50 p {
+                    text-align: center;
+                    margin-bottom: 1.5rem;
+                }
+
+                    .marquetImpactSignals .fxs_bordered_container .collapse .fxs_content_panel.fxs_entryPlain_txt_small .fxs_col_50 p .fxs_deviation {
+                        font-size: 1.9rem;
+                        font-weight: 400;
+                        position: relative;
+                        bottom: -0.2rem;
+                    }
+
+        .marquetImpactSignals .fxs_bordered_container .fxs_btn_content_toggle:hover,
+        .marquetImpactSignals .fxs_bordered_container .fxs_btn_content_toggle.active {
+            color: white;
+        }
+
+        .marquetImpactSignals .fxs_bordered_container .fxs_btn_content_toggle .fxs_togglebtn_txt {
+            font-size: 1rem;
+        }
+</style>
+
+<div class="fxs_hidden_s marquetImpactSignals">
+    <h3 class="fxs_subsectionTitle">
+        <a href="https://www.fxstreet.com/economic-calendar" data-gtmid="ecocalsignals-13">Trading opportunities <span class="fa fa-angle-double-right"></span></a>
     </h3>
-    <div class="fxs_col_100" style="border: 2px solid #8C8D91;padding:5px;">
-        <div style="width:24%;float:left;border:1px solid #DDDEDF;background-color: #F3F3F8;">
-            <p style="text-align: center; margin: 0;font-weight:700;line-height: 3rem; font-size:.8rem;">
+    <div class="fxs_col_100 fxs_bordered_container">
+        <div style="width:24%;" class="fxs_headCell">
+            <p>
                 UK Retail Sales (YoY)
             </p>
         </div>
-        <div style="width:16%;float:left;border:1px solid #DDDEDF;background-color: #F3F3F8;">
-            <p style="text-align: center; margin: 0;font-weight:700;line-height: 3rem; font-size:.8rem;">
+        <div style="width:16%;" class="fxs_headCell">
+            <p>
                 GMT: 9:30
             </p>
         </div>
-        <div style="width:22%;float:left;border:1px solid #DDDEDF;background-color: /*#F6DBC4*/#F3F3F8;">
-            <p style="text-align: center; margin: 0;font-weight:700;line-height: 3rem; font-size:.8rem;">
+        <div style="width:22%;" class="fxs_headCell fxs_trigger">
+            <p>
                 Actual: &#165;-1,153.2B
             </p>
         </div>
-        <div style="width:18%;float:left;border:1px solid #DDDEDF;background-color: /*#F6DBC4*/#F3F3F8;">
-            <p style="text-align: center; margin: 0;font-weight:700;line-height: 3rem; font-size:.8rem;">
+        <div style="width:18%;" class="fxs_headCell fxs_trigger">
+            <p>
                 Deviation: -1.11
             </p>
         </div>
-        <div style="width:20%;float:left;border:1px solid #DDDEDF;background-color: #F3F3F8;">
-            <p style="text-align: center; margin: 0;font-weight:700;line-height: 3rem; font-size:.8rem;">
+        <div style="width:20%;" class="fxs_headCell">
+            <p>
                 Consensus: 1.3%
             </p>
         </div>
-        <blockquote style="margin-top: 5rem;padding-bottom: 0;">
+        <blockquote>
             <p>
                 If UK Retail Sales (YoY) comes out at higher than expected with a deviation of +0.42 or higher, the pair may go up reaching a range of 48 pips in the first 15 minutes and 82 pips in the following 4 hours. If it comes out lower than expected at a deviation of -0.48 or less, the GBP/USD may down up reaching a range of 32 pips in the first 15 minutes and 74 pips in the following 4 hours.
             </p>
         </blockquote>
         <div class="fxs_col_100">
-            <div class="fxs_col fxs_col_50" style="padding:1rem 0;">
-                <p style="text-align: center;margin-bottom:0;font-size:0.9rem;">
+            <div class="fxs_col fxs_col_50">
+                <p>
                     <em>
                         Positive Trigger [BUY GBP/USD]:
                     </em>
                     <br />
-                    <span class="fa fa-chevron-right" style="color:#338473;">
+                    <span class="fa fa-chevron-right">
                     </span>
-                    <span style="font-size:1.9rem;font-weight: 400;position: relative;bottom:-.2rem;">
+                    <span class="fxs_deviation">
                         +0.42
                     </span>
                     <span>
                         Dev |
                     </span>
-                    <span style="font-size:1.9rem;font-weight: 400;position: relative;bottom:-.2rem;">
+                    <span class="fxs_deviation">
                         &#165;-1,153.2B
                     </span>
                     <span>
@@ -56,21 +191,21 @@
                     </span>
                 </p>
             </div>
-            <div class="fxs_col fxs_col_50" style="/*background-color: #F6DBC4*/;padding:1rem 0;">
-                <p style="text-align: center;margin-bottom:0;font-size:0.9rem;">
+            <div class="fxs_col fxs_col_50 fxs_trigger">
+                <p>
                     <em>
                         Negative Trigger [SELL GBP/USD]:
                     </em>
                     <br />
-                    <span class="fa fa-chevron-left" style="color:#D25746;">
+                    <span class="fa fa-chevron-left">
                     </span>
-                    <span style="font-size:1.9rem;font-weight: 400;position: relative;bottom:-.2rem;">
+                    <span class="fxs_deviation">
                         -0.48
                     </span>
                     <span>
                         Dev |
                     </span>
-                    <span style="font-size:1.9rem;font-weight: 400;position: relative;bottom:-.2rem;">
+                    <span class="fxs_deviation">
                         &#8364;-1.241B
                     </span>
                     <span>
@@ -79,26 +214,26 @@
                 </p>
             </div>
         </div>
-        <div class="collapse" id="collapseExample" aria-expanded="false" style="margin-top: 0;">
-            <div class="fxs_content_panel fxs_entryPlain_txt_small" style="padding-top:2rem;margin-bottom: 0;">
+        <div class="collapse" id="collapseExample" aria-expanded="false">
+            <div class="fxs_content_panel fxs_entryPlain_txt_small">
                 <div class="fxs_col fxs_col_50">
-                    <p style="text-align: center;margin-bottom: 1.5rem;">
+                    <p>
                         <em>
                             Key GBP/USD Resistance Level
                         </em>
                         <br />
-                        <span style="font-size:1.9rem;font-weight: 400;position: relative;bottom:-.2rem;">
+                        <span class="fxs_deviation">
                             1.4170
                         </span>
                     </p>
                 </div>
                 <div class="fxs_col fxs_col_50">
-                    <p style="text-align: center;margin-bottom: 1.5rem;">
+                    <p>
                         <em>
                             Key GBP/USD Support Level
                         </em>
                         <br />
-                        <span style="font-size:1.9rem;font-weight: 400;position: relative;bottom:-.2rem;">
+                        <span class="fxs_deviation">
                             1.4082
                         </span>
                     </p>
@@ -121,11 +256,14 @@
             </div>
         </div>
         <button type="button" class="fxs_btn fxs_btn_content_toggle fxs_btn_content_toggle_collapse fxs_btn_block btn collapsed fxs_btn_cta" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin:0;">
-            <style type="text/css">
-                .fxs_btn_content_toggle:hover, .fxs_btn_content_toggle.active {
-                    color: white;
-                }
-            </style> <span class="fxs_togglebtn_txt init_txt" style="font-size: 1rem;" data-gtmid="ecocalsignals-13"> Check Entry Points <span class="fa fa-chevron-down"> </span> </span> <span class="fxs_togglebtn_txt toggled_txt" style="font-size: 1rem;" data-gtmid="ecocalsignals-13"> Hide content <span class="fa fa-chevron-up"> </span> </span>
+            <span class="fxs_togglebtn_txt init_txt" data-gtmid="ecocalsignals-13">
+                Check Entry Points
+                <span class="fa fa-chevron-down"> </span>
+            </span>
+            <span class="fxs_togglebtn_txt toggled_txt" data-gtmid="ecocalsignals-13">
+                Hide content
+                <span class="fa fa-chevron-up"> </span>
+            </span>
         </button>
     </div>
 </div>
