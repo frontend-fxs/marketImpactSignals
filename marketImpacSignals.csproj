@@ -92,15 +92,12 @@
     <None Include=".git\refs\heads\master" />
     <None Include=".git\refs\remotes\origin\master" />
     <None Include=".vs\marketImpacSignals\v15\.suo" />
-    <None Include="marketImpactSignals.less" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".git\ms-persist.xml" />
+    <Content Include="actual.html" />
     <Content Include="backup.html" />
     <Content Include="index.html" />
-    <Content Include="marketImpactSignals.css" />
-    <Content Include="marketImpactSignals.html" />
-    <Content Include="withlink.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".git\lfs\objects\logs\" />
