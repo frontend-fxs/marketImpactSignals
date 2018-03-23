@@ -103,9 +103,8 @@
 </body>
 <script>
     $.get('./actual.html', function (template) {
-        Mustache.render(template).then(function (rendered) {
-            $('#target').html(rendered);
-        });
+        var rendered = Mustache.render(template);
+        $('#target').html(rendered);
     });
 </script>
 </html>
