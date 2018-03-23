@@ -101,8 +101,9 @@
 </body>
 <script>
     $.get('./backup.html', function (template) {
-        var rendered = Mustache.render(template);
-        $('#target').html(rendered);
+        Mustache.render(template).then(function (rendered) {
+            $('#target').html(rendered);
+        });
     });
 </script>
 </html>
