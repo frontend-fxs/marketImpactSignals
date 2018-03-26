@@ -49,6 +49,10 @@
         document.getElementById("signalsResistanceId").innerHTML = signalsResistance;
         document.getElementById("signalsSupportId").innerHTML = signalsSupport;
 
+        document.getElementById("signalsDescriptionId").innerHTML = "";
+        for (var i = 0; i < signalsDescription.length; i++) {
+            document.getElementById("signalsDescriptionId").innerHTML += "<p>" + signalsDescription[i] + "</p>";
+        }
 
         var signalsActualPrefixArr = document.getElementsByClassName("signalsActualPrefixClass");
         for (var i = 0; i < signalsActualPrefixArr.length; i++) {
@@ -68,12 +72,6 @@
             asset.innerHTML = signalsAsset;
         }
 
-        signalsAssetClass
-
-        document.getElementById("signalsDescriptionId").innerHTML = "";
-        for (var i = 0; i < signalsDescription.length; i++) {
-            document.getElementById("signalsDescriptionId").innerHTML += "<p>" + signalsDescription[i] + "</p>";
-        }
     }
 </script>
 <style>
