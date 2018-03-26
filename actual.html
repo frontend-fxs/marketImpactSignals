@@ -1,31 +1,9 @@
 <script>
-    var eventDateId = '134076a5-81aa-4bdc-8c48-fe7684fbf109'
-    var positiveTrigger = 0.048
-    var negativeTrigger = -0.36
+    var eventDateId = '54b6ac72-d631-4c6f-85c1-c7a98d86e812'
+    var positiveTrigger = 0.75
+    var negativeTrigger = -0.5
     console.log("Starting..")
     var millisecondsToWait = 1000;
-    setTimeout(function () {
-        var config = {
-            tokenUrl: "https://authorization-qa-i3.azurewebsites.net/token",
-            httpPushServerUrl: "https://httppush-qa.fxstreet.com/signalr/hubs",
-            culture: "en-US"
-        };
-        var push = FXStreetPush.PushNotification.getInstance(config);
-        var SetStandardDeviationAndBoundaries = function (data) {
-            if (data.EventDateId == eventDateId) {
-                console.log(data);
-                document.getElementById("standardDeviation").innerHTML = data.StandardDeviation;
-                document.getElementById("deviationId").addClass('fxs_trigger');
-                document.getElementById("actualId").addClass('fxs_trigger');
-                if (data.StandardDeviation < negativeTrigger)
-                    document.getElementById("negativeTrigger").addClass('fxs_trigger');
-                if (data.StandardDeviation > positiveTrigger)
-                    document.getElementById("positiveTrigger").addClass('fxs_trigger');
-            }
-        };
-        push.marketImpactSubscribe(SetStandardDeviationAndBoundaries);
-
-    }, millisecondsToWait);
 </script>
 <style>
     .marquetImpactSignals .fxs_subsectionTitle {
@@ -263,3 +241,28 @@
         </button>
     </div>
 </div>
+<script>
+    setTimeout(function () {
+        var config = {
+            tokenUrl: "https://authorization-qa-i3.azurewebsites.net/token",
+            httpPushServerUrl: "https://httppush-qa.fxstreet.com/signalr/hubs",
+            culture: "en-US"
+        };
+        var push = FXStreetPush.PushNotification.getInstance(config);
+        var SetStandardDeviationAndBoundaries = function (data) {
+            console.log(data);
+            if (data.EventDateId == eventDateId) {
+                console.log(data);
+                document.getElementById("standardDeviation").innerHTML = data.StandardDeviation;
+                document.getElementById("deviationId").addClass('fxs_trigger');
+                document.getElementById("actualId").addClass('fxs_trigger');
+                if (data.StandardDeviation < negativeTrigger)
+                    document.getElementById("negativeTrigger").addClass('fxs_trigger');
+                if (data.StandardDeviation > positiveTrigger)
+                    document.getElementById("positiveTrigger").addClass('fxs_trigger');
+            }
+        };
+        push.marketImpactSubscribe(SetStandardDeviationAndBoundaries);
+
+    }, millisecondsToWait);
+</script>
