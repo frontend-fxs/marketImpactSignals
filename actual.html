@@ -1,9 +1,80 @@
 <script>
-    var eventDateId = '54b6ac72-d631-4c6f-85c1-c7a98d86e812'
-    var positiveTrigger = 0.75
-    var negativeTrigger = -0.5
-    console.log("Starting..")
+    var eventDateId = '54b6ac72-d631-4c6f-85c1-c7a98d86e812';
+    var signalsTitle = "UK Retail Sales (YoY)";
+    var signalsAsset = "GBP/USD";
+    var signalsGTM = "9:30";
+    var signalsPositiveTrigger = 0.1;
+    var signalsNegativeTrigger = -0.1;
     var millisecondsToWait = 1000;
+    var signalsStandardDeviation = "?";
+    var signalsPositiveTriggerDeviation = 0.1;
+    var signalsNegativeTriggerDeviation = -0.1;
+    var signalsActual = "?";
+    var signalsActualPrefix = "$";
+    var signalsActualSuffix = "€";
+    var signalsPositiveTriggerActual = 0.1;
+    var signalsNegativeTriggerActual = -0.1;
+    var signalsConsensus = 1.1;
+    var signalsResistance = 1.4563;
+    var signalsSupport = 1.4563;
+    var signalsFeatured = "If UK Retail Sales (YoY) comes out at higher than expected with a deviation of +0.42 or higher, the pair may go up reaching a range of 48 pips in the first 15 minutes and 82 pips in the following 4 hours. If it comes out lower than expected at a deviation of -0.48 or less, the  may down up reaching a range of 32 pips in the first 15 minutes and 74 pips in the following 4 hours.";
+    var signalsDescription = [
+        "In the last five releases, the  moved, on average, 37 pips in the 15 minutes after the release and 83 pips in the 4 hours after the release.",
+        "The previous release had a surprise of -0.86 measured in terms of deviation, and the  reached the 59 pips of volatility 15 minutes after the release and 121 pips in the following four hours.",
+        "If UK Retail Sales (YoY) comes out at higher than expected with a deviation of +0.42 or higher, the pair may go up reaching a range of 48 pips in the first 15 minutes and 82 pips in the following 4 hours. If it comes out lower than expected at a deviation of -0.48 or less, the  may down up reaching a range of 32 pips in the first 15 minutes and 74 pips in the following 4 hours.",
+        "On the upside, there could be a bit of resistance at 1.4170. Support levels are to be found approximately at 1.4082 and 1.4015 accordingly to the Confluence Indicator.",
+        "From a positioning perspective, weak supply is noted at 1.4190. Some vestiges of demand can be seen around 1.4000, based on aggregated trading positions from FXStreet's dedicated contributors."
+    ];
+    var signalsPositiveTriggerLabel = "[BUY " + signalsAsset + "]";
+    var signalsNegativeTriggerLabel = "[SELL " + signalsAsset + "]";
+
+
+    var updateSignals = function () {
+        document.getElementById('signalsTitleId').innerHTML = signalsTitle;
+        document.getElementById('signalsGTMId').innerHTML = signalsGTM;
+        document.getElementById("signalsStandardDeviationId").innerHTML = signalsStandardDeviation;
+        document.getElementById("signalsActualId").innerHTML = signalsActual;
+        document.getElementById("signalsConsensusId").innerHTML = signalsConsensus;
+
+        document.getElementById("signalsFeaturedId").innerHTML = signalsFeatured;
+
+        document.getElementById("signalsPositiveTriggerDeviationId").innerHTML = signalsPositiveTriggerDeviation;
+        document.getElementById("signalsPositiveTriggerLabelId").innerHTML = signalsPositiveTriggerLabel;
+        document.getElementById("signalsPositiveTriggerActualId").innerHTML = signalsPositiveTriggerActual;
+
+        document.getElementById("signalsNegativeTriggerDeviationId").innerHTML = signalsNegativeTrigger;
+        document.getElementById("signalsNegativeTriggerLabelId").innerHTML = signalsNegativeTriggerLabel;
+        document.getElementById("signalsNegativeTriggerActualId").innerHTML = signalsNegativeTriggerActual;
+
+        document.getElementById("signalsResistanceId").innerHTML = signalsResistance;
+        document.getElementById("signalsSupportId").innerHTML = signalsSupport;
+
+
+        var signalsActualPrefixArr = document.getElementsByClassName("signalsActualPrefixClass");
+        for (var i = 0; i < signalsActualPrefixArr.length; i++) {
+            var actualPrefix = signalsActualPrefixArr[i];
+            actualPrefix.innerHTML = signalsActualPrefix;
+        }
+
+        var signalsActualSuffixArr = document.getElementsByClassName("signalsActualSuffixClass");
+        for (var i = 0; i < signalsActualSuffixArr.length; i++) {
+            var actualSuffix = signalsActualSuffixArr[i];
+            actualSuffix.innerHTML = signalsActualSuffix;
+        }
+
+        var signalsAssetArr = document.getElementsByClassName("signalsAssetClass");
+        for (var i = 0; i < signalsAssetArr.length; i++) {
+            var asset = signalsAssetArr[i];
+            asset.innerHTML = signalsAsset;
+        }
+
+        signalsAssetClass
+
+        document.getElementById("signalsDescriptionId").innerHTML = "";
+        for (var i = 0; i < signalsDescription.length; i++) {
+            document.getElementById("signalsDescriptionId").innerHTML += "<p>" + signalsDescription[i] + "</p>";
+        }
+    }
 </script>
 <style>
     .marquetImpactSignals .fxs_subsectionTitle {
@@ -89,6 +160,8 @@
             .marquetImpactSignals .fxs_bordered_container .collapse .fxs_content_panel.fxs_entryPlain_txt_small {
                 padding-top: 2rem;
                 margin-bottom: 0;
+                width: 100%;
+                float: left;
             }
 
                 .marquetImpactSignals .fxs_bordered_container .collapse .fxs_content_panel.fxs_entryPlain_txt_small .fxs_col_50 p {
@@ -115,75 +188,76 @@
 
 <div class="fxs_hidden_s marquetImpactSignals">
     <h3 class="fxs_subsectionTitle">
-        <a href="https://www.fxstreet.com/economic-calendar" data-gtmid="ecocalsignals-13">Trading opportunities <span class="fa fa-angle-double-right"></span></a>
+        <a href="https://www.fxstreet.com/economic-calendar" data-gtmid="ecocalsignals-13">
+            Trading opportunities
+            <span class="fa fa-angle-double-right"></span>
+        </a>
     </h3>
     <div class="fxs_col_100 fxs_bordered_container">
         <div style="width:24%;" class="fxs_headCell">
-            <p>
-                UK Retail Sales (YoY)
-            </p>
+            <p id="signalsTitleId"></p>
         </div>
         <div style="width:16%;" class="fxs_headCell">
-            <p>
-                GMT: 9:30
-            </p>
+            <p>GMT: <span id="signalsGTMId"></span></p>
         </div>
         <div style="width:18%;" class="fxs_headCell" id="deviationId">
             <p>
-                Deviation: <span id="standardDeviation">?</span>
+                Deviation: <span id="signalsStandardDeviationId"></span>
             </p>
         </div>
         <div style="width:22%;" class="fxs_headCell" id="actualId">
             <p>
-                Actual: &#165;-1,153.2B
+                Actual:
+                <span class="signalsActualPrefixClass"></span>
+                <span id="signalsActualId"></span>
+                <span class="signalsActualSuffixClass"></span>
             </p>
         </div>
         <div style="width:20%;" class="fxs_headCell">
             <p>
-                Consensus: 1.3%
+                Consensus: <span id="signalsConsensusId"></span>%
             </p>
         </div>
         <blockquote>
-            <p>
-                If UK Retail Sales (YoY) comes out at higher than expected with a deviation of +0.42 or higher, the pair may go up reaching a range of 48 pips in the first 15 minutes and 82 pips in the following 4 hours. If it comes out lower than expected at a deviation of -0.48 or less, the GBP/USD may down up reaching a range of 32 pips in the first 15 minutes and 74 pips in the following 4 hours.
-            </p>
+            <p id="signalsFeaturedId"></p>
         </blockquote>
         <div class="fxs_col_100">
-            <div class="fxs_col fxs_col_50" id="positiveTrigger">
+            <div class="fxs_col fxs_col_50" id="signalsPositiveTriggerId">
                 <p>
                     <em>
-                        Positive Trigger [BUY GBP/USD]:
+                        Positive Trigger <span id="signalsPositiveTriggerLabelId"></span> :
                     </em>
                     <br />
-                    <span class="fa fa-chevron-right">
-                    </span>
+                    <span class="fa fa-chevron-right"></span>
                     <span class="fxs_deviation">
-                        +0.42
+                        +<span id="signalsPositiveTriggerDeviationId"></span>
                     </span>
                     <span>
                         Dev |
                     </span>
                     <span class="fxs_deviation">
-                        &#165;-1,153.2B
+                        <span class="signalsActualPrefixClass"></span>
+                        <span id="signalsPositiveTriggerActualId"></span>
+                        <span class="signalsActualSuffixClass"></span>
                     </span>
                 </p>
             </div>
-            <div class="fxs_col fxs_col_50" id="negativeTrigger">
+            <div class="fxs_col fxs_col_50" id="signalsNegativeTriggerId">
                 <p>
                     <em>
-                        Negative Trigger [SELL GBP/USD]:
+                        Negative Trigger <span id="signalsNegativeTriggerLabelId"></span>:
                     </em>
                     <br />
                     <span class="fa fa-chevron-left">
                     </span>
-                    <span class="fxs_deviation">
-                        -0.48
-                    </span>
+                    <span class="fxs_deviation" id="signalsNegativeTriggerDeviationId"></span>
                     <span>
                         Dev |
                     </span>
                     <span class="fxs_deviation">
-                        &#8364;-1.241B
+                        <span class="signalsActualPrefixClass"></span>
+                        <span id="signalsNegativeTriggerActualId"></span>
+                        <span class="signalsActualSuffixClass"></span>
                     </span>
                 </p>
             </div>
@@ -193,10 +267,10 @@
                 <div class="fxs_col fxs_col_50">
                     <p>
                         <em>
-                            Key GBP/USD Resistance Level
+                            Key <span class="signalsAssetClass"></span> Resistance Level
                         </em>
                         <br />
-                        <span class="fxs_deviation">
+                        <span class="fxs_deviation" id="signalsResistanceId">
                             1.4170
                         </span>
                     </p>
@@ -204,29 +278,15 @@
                 <div class="fxs_col fxs_col_50">
                     <p>
                         <em>
-                            Key GBP/USD Support Level
+                            Key <span class="signalsAssetClass"></span> Support Level
                         </em>
                         <br />
-                        <span class="fxs_deviation">
+                        <span class="fxs_deviation" id="signalsSupportId">
                             1.4082
                         </span>
                     </p>
                 </div>
-                <p>
-                    In the last five releases, the GBP/USD moved, on average, 37 pips in the 15 minutes after the release and 83 pips in the 4 hours after the release.
-                </p>
-                <p>
-                    The previous release had a surprise of -0.86 measured in terms of deviation, and the GBP/USD reached the 59 pips of volatility 15 minutes after the release and 121 pips in the following four hours.
-                </p>
-                <p>
-                    If UK Retail Sales (YoY) comes out at higher than expected with a deviation of +0.42 or higher, the pair may go up reaching a range of 48 pips in the first 15 minutes and 82 pips in the following 4 hours. If it comes out lower than expected at a deviation of -0.48 or less, the GBP/USD may down up reaching a range of 32 pips in the first 15 minutes and 74 pips in the following 4 hours.
-                </p>
-                <p>
-                    On the upside, there could be a bit of resistance at 1.4170. Support levels are to be found approximately at 1.4082 and 1.4015 accordingly to the Confluence Indicator.
-                </p>
-                <p>
-                    From a positioning perspective, weak supply is noted at 1.4190. Some vestiges of demand can be seen around 1.4000, based on aggregated trading positions from FXStreet's dedicated contributors.
-                </p>
+                <div id="signalsDescriptionId"></div>
             </div>
         </div>
         <button type="button" class="fxs_btn fxs_btn_content_toggle fxs_btn_content_toggle_collapse fxs_btn_block btn collapsed fxs_btn_cta" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin:0;">
@@ -242,7 +302,9 @@
     </div>
 </div>
 <script>
+    updateSignals();
     setTimeout(function () {
+        console.log("Starting..");
         var config = {
             tokenUrl: "https://authorization-qa-i3.azurewebsites.net/token",
             httpPushServerUrl: "https://httppush-qa.fxstreet.com/signalr/hubs",
@@ -251,18 +313,17 @@
         var push = FXStreetPush.PushNotification.getInstance(config);
         var SetStandardDeviationAndBoundaries = function (data) {
             console.log(data);
-            if (data.EventDateId == eventDateId) {
-                console.log(data);
-                document.getElementById("standardDeviation").innerHTML = data.StandardDeviation;
-                document.getElementById("deviationId").addClass('fxs_trigger');
-                document.getElementById("actualId").addClass('fxs_trigger');
-                if (data.StandardDeviation < negativeTrigger)
-                    document.getElementById("negativeTrigger").addClass('fxs_trigger');
-                if (data.StandardDeviation > positiveTrigger)
-                    document.getElementById("positiveTrigger").addClass('fxs_trigger');
-            }
+            //if (data.EventDateId == eventDateId) {
+            document.getElementById("signalsStandardDeviationId").innerHTML = data.StandardDeviation;
+            document.getElementById("signalsActualId").innerHTML = data.Actual;
+            document.getElementById("deviationId").classList.add('fxs_trigger');
+            document.getElementById("actualId").classList.add('fxs_trigger');
+            if (parseFloat(data.StandardDeviation) < signalsNegativeTrigger)
+                document.getElementById("signalsNegativeTriggerId").classList.add('fxs_trigger');
+            if (parseFloat(data.StandardDeviation) > signalsPositiveTrigger)
+                document.getElementById("signalsPositiveTriggerId").classList.add('fxs_trigger');
+            //}
         };
         push.marketImpactSubscribe(SetStandardDeviationAndBoundaries);
-
     }, millisecondsToWait);
 </script>
