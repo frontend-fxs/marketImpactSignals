@@ -1,0 +1,347 @@
+﻿<script>
+    var datagtmidVar="ecocalsignals-14"
+    var eventDateId = '54b6ac72-d631-4c6f-85c1-c7a98d86e812';
+    var signalsTitle = "UK Retail Sales (YoY)";
+    var signalsAsset = "GBP/USD";
+    var signalsGTM = "9:30";
+    var signalsPositiveTrigger = 0.1;
+    var signalsNegativeTrigger = -0.1;
+    var millisecondsToWait = 1000;
+    var signalsStandardDeviation = "?";
+    var signalsPositiveTriggerDeviation = 0.1;
+    var signalsNegativeTriggerDeviation = -0.1;
+    var signalsActual = "?";
+    var signalsActualPrefix = "$";
+    var signalsActualSuffix = "€";
+    var signalsPositiveTriggerActual = 0.1;
+    var signalsNegativeTriggerActual = -0.1;
+    var signalsConsensus = 1.1;
+    var signalsResistance = 1.4563;
+    var signalsSupport = 1.4563;
+    var signalsFeatured = "If UK Retail Sales (YoY) comes out at higher than expected with a deviation of +0.42 or higher, the pair may go up reaching a range of 48 pips in the first 15 minutes and 82 pips in the following 4 hours. If it comes out lower than expected at a deviation of -0.48 or less, the  may down up reaching a range of 32 pips in the first 15 minutes and 74 pips in the following 4 hours.";
+    var signalsDescription = [
+        "In the last five releases, the  moved, on average, 37 pips in the 15 minutes after the release and 83 pips in the 4 hours after the release.",
+        "The previous release had a surprise of -0.86 measured in terms of deviation, and the  reached the 59 pips of volatility 15 minutes after the release and 121 pips in the following four hours.",
+        "If UK Retail Sales (YoY) comes out at higher than expected with a deviation of +0.42 or higher, the pair may go up reaching a range of 48 pips in the first 15 minutes and 82 pips in the following 4 hours. If it comes out lower than expected at a deviation of -0.48 or less, the  may down up reaching a range of 32 pips in the first 15 minutes and 74 pips in the following 4 hours.",
+        "On the upside, there could be a bit of resistance at 1.4170. Support levels are to be found approximately at 1.4082 and 1.4015 accordingly to the Confluence Indicator.",
+        "From a positioning perspective, weak supply is noted at 1.4190. Some vestiges of demand can be seen around 1.4000, based on aggregated trading positions from FXStreet's dedicated contributors."
+    ];
+    var signalsPositiveTriggerLabel = "[BUY " + signalsAsset + "]";
+    var signalsNegativeTriggerLabel = "[SELL " + signalsAsset + "]";
+</script>
+<style>
+    .marquetImpactSignals .fxs_subsectionTitle {
+        display: block;
+        width: 100%;
+        padding: 5px 15px;
+        margin: 0;
+        background-color: #8c8d91;
+        color: white;
+    }
+
+        .marquetImpactSignals .fxs_subsectionTitle a {
+            color: white;
+        }
+
+    .marquetImpactSignals .fxs_bordered_container {
+        border: 2px solid #8c8d91;
+        padding: 5px;
+    }
+
+        .marquetImpactSignals .fxs_bordered_container .fxs_headCell {
+            float: left;
+            border: 1px solid #dddedf;
+            background-color: #f3f3f8;
+        }
+
+            .marquetImpactSignals .fxs_bordered_container .fxs_headCell.fxs_trigger {
+                background-color: #f6dbc4;
+            }
+
+            .marquetImpactSignals .fxs_bordered_container .fxs_headCell p {
+                text-align: center;
+                margin: 0;
+                font-weight: 700;
+                line-height: 3rem;
+                font-size: 0.8rem;
+            }
+
+        .marquetImpactSignals .fxs_bordered_container blockquote {
+            margin-top: 5rem;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+            .marquetImpactSignals .fxs_bordered_container blockquote p {
+                margin-bottom: 0;
+            }
+
+        .marquetImpactSignals .fxs_bordered_container .fxs_col_50 {
+            padding: 1rem 0;
+        }
+
+            .marquetImpactSignals .fxs_bordered_container .fxs_col_50.fxs_trigger {
+                background-color: #f6dbc4;
+            }
+
+            .marquetImpactSignals .fxs_bordered_container .fxs_col_50 p {
+                text-align: center;
+                margin-bottom: 0;
+                font-size: 0.9rem;
+            }
+
+                .marquetImpactSignals .fxs_bordered_container .fxs_col_50 p .fa-chevron-right {
+                    color: #338473;
+                }
+
+                .marquetImpactSignals .fxs_bordered_container .fxs_col_50 p .fa-chevron-left {
+                    color: #d25746;
+                }
+
+                .marquetImpactSignals .fxs_bordered_container .fxs_col_50 p .fxs_deviation {
+                    font-size: 1.6rem;
+                    font-weight: 400;
+                    position: relative;
+                    bottom: -0.2rem;
+                    margin: 0 10px;
+                }
+
+        .marquetImpactSignals .fxs_bordered_container .collapse {
+            margin-top: 0;
+        }
+
+            .marquetImpactSignals .fxs_bordered_container .collapse .fxs_content_panel.fxs_entryPlain_txt_small {
+                padding-top: 2rem;
+                margin-bottom: 0;
+                width: 100%;
+                float: left;
+            }
+
+                .marquetImpactSignals .fxs_bordered_container .collapse .fxs_content_panel.fxs_entryPlain_txt_small .fxs_col_50 p {
+                    text-align: center;
+                    margin-bottom: 1.5rem;
+                }
+
+                    .marquetImpactSignals .fxs_bordered_container .collapse .fxs_content_panel.fxs_entryPlain_txt_small .fxs_col_50 p .fxs_deviation {
+                        font-size: 1.6rem;
+                        font-weight: 400;
+                        position: relative;
+                        bottom: -0.2rem;
+                    }
+
+        .marquetImpactSignals .fxs_bordered_container .fxs_btn_content_toggle:hover,
+        .marquetImpactSignals .fxs_bordered_container .fxs_btn_content_toggle.active {
+            color: white;
+        }
+
+        .marquetImpactSignals .fxs_bordered_container .fxs_btn_content_toggle .fxs_togglebtn_txt {
+            font-size: 1rem;
+        }
+</style>
+
+<div class="fxs_hidden_s marquetImpactSignals">
+    <h3 class="fxs_subsectionTitle" id="signalsTitleCalendarLink">
+        <a href="https://www.fxstreet.com/economic-calendar" class="datagtmidClass">
+            Trading opportunities
+            <span class="fa fa-angle-double-right"></span>
+        </a>
+    </h3>
+    <h3 class="fxs_subsectionTitle fxs_hideElements" id="signalsTitleWithoutLink">
+        Trading opportunities
+    </h3>
+    <div class="fxs_col_100 fxs_bordered_container">
+        <div style="width:24%;" class="fxs_headCell">
+            <p id="signalsTitleId"></p>
+        </div>
+        <div style="width:16%;" class="fxs_headCell">
+            <p>GMT: <span id="signalsGTMId"></span></p>
+        </div>
+        <div style="width:18%;" class="fxs_headCell" id="deviationId">
+            <p>
+                Deviation: <span id="signalsStandardDeviationId"></span>
+            </p>
+        </div>
+        <div style="width:22%;" class="fxs_headCell" id="actualId">
+            <p>
+                Actual:
+                <span class="signalsActualPrefixClass"></span>
+                <span id="signalsActualId"></span>
+                <span class="signalsActualSuffixClass"></span>
+            </p>
+        </div>
+        <div style="width:20%;" class="fxs_headCell">
+            <p>
+                Consensus: <span id="signalsConsensusId"></span>%
+            </p>
+        </div>
+        <blockquote>
+            <p id="signalsFeaturedId"></p>
+        </blockquote>
+        <div class="fxs_col_100">
+            <div class="fxs_col fxs_col_50" id="signalsPositiveTriggerId">
+                <p>
+                    <em>
+                        Positive Trigger <span id="signalsPositiveTriggerLabelId"></span>
+                    </em>
+                    <br />
+                    <span class="fa fa-chevron-right"></span>
+                    <span class="fxs_deviation">
+                        +<span id="signalsPositiveTriggerDeviationId"></span>
+                    </span>
+                    <span>
+                        Dev |
+                    </span>
+                    <span class="fxs_deviation">
+                        <span class="signalsActualPrefixClass"></span>
+                        <span id="signalsPositiveTriggerActualId"></span>
+                        <span class="signalsActualSuffixClass"></span>
+                    </span>
+                </p>
+            </div>
+            <div class="fxs_col fxs_col_50" id="signalsNegativeTriggerId">
+                <p>
+                    <em>
+                        Negative Trigger <span id="signalsNegativeTriggerLabelId"></span>
+                    </em>
+                    <br />
+                    <span class="fa fa-chevron-left">
+                    </span>
+                    <span class="fxs_deviation" id="signalsNegativeTriggerDeviationId"></span>
+                    <span>
+                        Dev |
+                    </span>
+                    <span class="fxs_deviation">
+                        <span class="signalsActualPrefixClass"></span>
+                        <span id="signalsNegativeTriggerActualId"></span>
+                        <span class="signalsActualSuffixClass"></span>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample" aria-expanded="false">
+            <div class="fxs_content_panel fxs_entryPlain_txt_small">
+                <div class="fxs_col fxs_col_50">
+                    <p>
+                        <em>
+                            Key <span class="signalsAssetClass"></span> Resistance Level
+                        </em>
+                        <br />
+                        <span class="fxs_deviation" id="signalsResistanceId">
+                            1.4170
+                        </span>
+                    </p>
+                </div>
+                <div class="fxs_col fxs_col_50">
+                    <p>
+                        <em>
+                            Key <span class="signalsAssetClass"></span> Support Level
+                        </em>
+                        <br />
+                        <span class="fxs_deviation" id="signalsSupportId">
+                            1.4082
+                        </span>
+                    </p>
+                </div>
+                <div id="signalsDescriptionId"></div>
+            </div>
+        </div>
+        <button type="button" class="fxs_btn fxs_btn_content_toggle fxs_btn_content_toggle_collapse fxs_btn_block btn collapsed fxs_btn_cta" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin:0;">
+            <span class="fxs_togglebtn_txt init_txt datagtmidClass">
+                Check Entry Points
+                <span class="fa fa-chevron-down"> </span>
+            </span>
+            <span class="fxs_togglebtn_txt toggled_txt datagtmidClass">
+                Hide content
+                <span class="fa fa-chevron-up"> </span>
+            </span>
+        </button>
+    </div>
+</div>
+<script>
+
+    // Update data
+
+    document.getElementById('signalsTitleId').innerHTML = signalsTitle;
+    document.getElementById('signalsGTMId').innerHTML = signalsGTM;
+    document.getElementById("signalsStandardDeviationId").innerHTML = signalsStandardDeviation;
+    document.getElementById("signalsActualId").innerHTML = signalsActual;
+    document.getElementById("signalsConsensusId").innerHTML = signalsConsensus;
+
+    document.getElementById("signalsFeaturedId").innerHTML = signalsFeatured;
+
+    document.getElementById("signalsPositiveTriggerDeviationId").innerHTML = signalsPositiveTriggerDeviation;
+    document.getElementById("signalsPositiveTriggerLabelId").innerHTML = signalsPositiveTriggerLabel;
+    document.getElementById("signalsPositiveTriggerActualId").innerHTML = signalsPositiveTriggerActual;
+
+    document.getElementById("signalsNegativeTriggerDeviationId").innerHTML = signalsNegativeTrigger;
+    document.getElementById("signalsNegativeTriggerLabelId").innerHTML = signalsNegativeTriggerLabel;
+    document.getElementById("signalsNegativeTriggerActualId").innerHTML = signalsNegativeTriggerActual;
+
+    document.getElementById("signalsResistanceId").innerHTML = signalsResistance;
+    document.getElementById("signalsSupportId").innerHTML = signalsSupport;
+
+    document.getElementById("signalsDescriptionId").innerHTML = "";
+    for (var i = 0; i < signalsDescription.length; i++) {
+        document.getElementById("signalsDescriptionId").innerHTML += "<p>" + signalsDescription[i] + "</p>";
+    }
+
+    var signalsActualPrefixArr = document.getElementsByClassName("signalsActualPrefixClass");
+    for (var i = 0; i < signalsActualPrefixArr.length; i++) {
+        var actualPrefix = signalsActualPrefixArr[i];
+        actualPrefix.innerHTML = signalsActualPrefix;
+    }
+
+    var signalsActualSuffixArr = document.getElementsByClassName("signalsActualSuffixClass");
+    for (var i = 0; i < signalsActualSuffixArr.length; i++) {
+        var actualSuffix = signalsActualSuffixArr[i];
+        actualSuffix.innerHTML = signalsActualSuffix;
+    }
+
+    var signalsAssetArr = document.getElementsByClassName("signalsAssetClass");
+    for (var i = 0; i < signalsAssetArr.length; i++) {
+        var asset = signalsAssetArr[i];
+        asset.innerHTML = signalsAsset;
+    }
+
+    var datagtmidArr = document.getElementsByClassName("datagtmidClass");
+    for (var i = 0; i < datagtmidArr.length; i++) {
+        var datagtmid = datagtmidArr[i];
+        datagtmid.setAttribute("data-gtmid", datagtmidVar);
+    }
+
+    if (window.location.pathname == "/economic-calendar") {
+        document.getElementById('signalsTitleCalendarLink').classList.add('fxs_hideElements');
+        document.getElementById('signalsTitleWithoutLink').classList.remove('fxs_hideElements');
+    }
+
+    // end update data
+
+    // push deviation and actual
+
+    setTimeout(function () {
+        console.log("Starting..");
+        var config = {
+            tokenUrl: "https://authorization-qa-i3.azurewebsites.net/token",
+            httpPushServerUrl: "https://httppush-qa.fxstreet.com/signalr/hubs",
+            culture: "en-US"
+        };
+        var push = FXStreetPush.PushNotification.getInstance(config);
+        var SetStandardDeviationAndBoundaries = function (data) {
+            console.log(data);
+            if (data.EventDateId == eventDateId) {
+                document.getElementById("signalsStandardDeviationId").innerHTML = data.StandardDeviation;
+                document.getElementById("signalsActualId").innerHTML = data.Actual;
+                document.getElementById("deviationId").classList.add('fxs_trigger');
+                document.getElementById("actualId").classList.add('fxs_trigger');
+                if (parseFloat(data.StandardDeviation) < signalsNegativeTrigger)
+                    document.getElementById("signalsNegativeTriggerId").classList.add('fxs_trigger');
+                if (parseFloat(data.StandardDeviation) > signalsPositiveTrigger)
+                    document.getElementById("signalsPositiveTriggerId").classList.add('fxs_trigger');
+            }
+        };
+        push.marketImpactSubscribe(SetStandardDeviationAndBoundaries);
+    }, millisecondsToWait);
+
+    // end push deviation and actual
+
+</script>
