@@ -97,8 +97,8 @@
     <Content Include=".git\ms-persist.xml" />
     <Content Include="actual.html" />
     <Content Include="backup.html" />
-    <Content Include="index.html" />
     <Content Include="index2.html" />
+    <Content Include="index.html" />
     <Content Include="index4.html" />
     <Content Include="next.html" />
   </ItemGroup>
