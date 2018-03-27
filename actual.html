@@ -1,4 +1,5 @@
 <script>
+    var data-gtmid="ecocalsignals-14"
     var eventDateId = '54b6ac72-d631-4c6f-85c1-c7a98d86e812';
     var signalsTitle = "UK Retail Sales (YoY)";
     var signalsAsset = "GBP/USD";
@@ -27,52 +28,6 @@
     ];
     var signalsPositiveTriggerLabel = "[BUY " + signalsAsset + "]";
     var signalsNegativeTriggerLabel = "[SELL " + signalsAsset + "]";
-
-
-    var updateSignals = function () {
-        document.getElementById('signalsTitleId').innerHTML = signalsTitle;
-        document.getElementById('signalsGTMId').innerHTML = signalsGTM;
-        document.getElementById("signalsStandardDeviationId").innerHTML = signalsStandardDeviation;
-        document.getElementById("signalsActualId").innerHTML = signalsActual;
-        document.getElementById("signalsConsensusId").innerHTML = signalsConsensus;
-
-        document.getElementById("signalsFeaturedId").innerHTML = signalsFeatured;
-
-        document.getElementById("signalsPositiveTriggerDeviationId").innerHTML = signalsPositiveTriggerDeviation;
-        document.getElementById("signalsPositiveTriggerLabelId").innerHTML = signalsPositiveTriggerLabel;
-        document.getElementById("signalsPositiveTriggerActualId").innerHTML = signalsPositiveTriggerActual;
-
-        document.getElementById("signalsNegativeTriggerDeviationId").innerHTML = signalsNegativeTrigger;
-        document.getElementById("signalsNegativeTriggerLabelId").innerHTML = signalsNegativeTriggerLabel;
-        document.getElementById("signalsNegativeTriggerActualId").innerHTML = signalsNegativeTriggerActual;
-
-        document.getElementById("signalsResistanceId").innerHTML = signalsResistance;
-        document.getElementById("signalsSupportId").innerHTML = signalsSupport;
-
-        document.getElementById("signalsDescriptionId").innerHTML = "";
-        for (var i = 0; i < signalsDescription.length; i++) {
-            document.getElementById("signalsDescriptionId").innerHTML += "<p>" + signalsDescription[i] + "</p>";
-        }
-
-        var signalsActualPrefixArr = document.getElementsByClassName("signalsActualPrefixClass");
-        for (var i = 0; i < signalsActualPrefixArr.length; i++) {
-            var actualPrefix = signalsActualPrefixArr[i];
-            actualPrefix.innerHTML = signalsActualPrefix;
-        }
-
-        var signalsActualSuffixArr = document.getElementsByClassName("signalsActualSuffixClass");
-        for (var i = 0; i < signalsActualSuffixArr.length; i++) {
-            var actualSuffix = signalsActualSuffixArr[i];
-            actualSuffix.innerHTML = signalsActualSuffix;
-        }
-
-        var signalsAssetArr = document.getElementsByClassName("signalsAssetClass");
-        for (var i = 0; i < signalsAssetArr.length; i++) {
-            var asset = signalsAssetArr[i];
-            asset.innerHTML = signalsAsset;
-        }
-
-    }
 </script>
 <style>
     .marquetImpactSignals .fxs_subsectionTitle {
@@ -84,9 +39,13 @@
         color: white;
     }
 
-        .marquetImpactSignals .fxs_subsectionTitle a {
-            color: white;
-        }
+    #signalsTitleWithoutLink {
+        display: none;
+    }
+
+    .marquetImpactSignals .fxs_subsectionTitle a {
+        color: white;
+    }
 
     .marquetImpactSignals .fxs_bordered_container {
         border: 2px solid #8c8d91;
@@ -185,11 +144,14 @@
 </style>
 
 <div class="fxs_hidden_s marquetImpactSignals">
-    <h3 class="fxs_subsectionTitle">
-        <a href="https://www.fxstreet.com/economic-calendar" data-gtmid="ecocalsignals-13">
+    <h3 class="fxs_subsectionTitle" id="signalsTitleCalendarLink">
+        <a href="https://www.fxstreet.com/economic-calendar" class="datagtmidClass">
             Trading opportunities
             <span class="fa fa-angle-double-right"></span>
         </a>
+    </h3>
+    <h3 class="fxs_subsectionTitle" id="signalsTitleWithoutLink">
+        Trading opportunities
     </h3>
     <div class="fxs_col_100 fxs_bordered_container">
         <div style="width:24%;" class="fxs_headCell">
@@ -288,11 +250,11 @@
             </div>
         </div>
         <button type="button" class="fxs_btn fxs_btn_content_toggle fxs_btn_content_toggle_collapse fxs_btn_block btn collapsed fxs_btn_cta" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin:0;">
-            <span class="fxs_togglebtn_txt init_txt" data-gtmid="ecocalsignals-13">
+            <span class="fxs_togglebtn_txt init_txt" class="datagtmidClass">
                 Check Entry Points
                 <span class="fa fa-chevron-down"> </span>
             </span>
-            <span class="fxs_togglebtn_txt toggled_txt" data-gtmid="ecocalsignals-13">
+            <span class="fxs_togglebtn_txt toggled_txt" class="datagtmidClass">
                 Hide content
                 <span class="fa fa-chevron-up"> </span>
             </span>
@@ -300,7 +262,66 @@
     </div>
 </div>
 <script>
-    updateSignals();
+
+    // Update data
+
+    document.getElementById('signalsTitleId').innerHTML = signalsTitle;
+    document.getElementById('signalsGTMId').innerHTML = signalsGTM;
+    document.getElementById("signalsStandardDeviationId").innerHTML = signalsStandardDeviation;
+    document.getElementById("signalsActualId").innerHTML = signalsActual;
+    document.getElementById("signalsConsensusId").innerHTML = signalsConsensus;
+
+    document.getElementById("signalsFeaturedId").innerHTML = signalsFeatured;
+
+    document.getElementById("signalsPositiveTriggerDeviationId").innerHTML = signalsPositiveTriggerDeviation;
+    document.getElementById("signalsPositiveTriggerLabelId").innerHTML = signalsPositiveTriggerLabel;
+    document.getElementById("signalsPositiveTriggerActualId").innerHTML = signalsPositiveTriggerActual;
+
+    document.getElementById("signalsNegativeTriggerDeviationId").innerHTML = signalsNegativeTrigger;
+    document.getElementById("signalsNegativeTriggerLabelId").innerHTML = signalsNegativeTriggerLabel;
+    document.getElementById("signalsNegativeTriggerActualId").innerHTML = signalsNegativeTriggerActual;
+
+    document.getElementById("signalsResistanceId").innerHTML = signalsResistance;
+    document.getElementById("signalsSupportId").innerHTML = signalsSupport;
+
+    document.getElementById("signalsDescriptionId").innerHTML = "";
+    for (var i = 0; i < signalsDescription.length; i++) {
+        document.getElementById("signalsDescriptionId").innerHTML += "<p>" + signalsDescription[i] + "</p>";
+    }
+
+    var signalsActualPrefixArr = document.getElementsByClassName("signalsActualPrefixClass");
+    for (var i = 0; i < signalsActualPrefixArr.length; i++) {
+        var actualPrefix = signalsActualPrefixArr[i];
+        actualPrefix.innerHTML = signalsActualPrefix;
+    }
+
+    var signalsActualSuffixArr = document.getElementsByClassName("signalsActualSuffixClass");
+    for (var i = 0; i < signalsActualSuffixArr.length; i++) {
+        var actualSuffix = signalsActualSuffixArr[i];
+        actualSuffix.innerHTML = signalsActualSuffix;
+    }
+
+    var signalsAssetArr = document.getElementsByClassName("signalsAssetClass");
+    for (var i = 0; i < signalsAssetArr.length; i++) {
+        var asset = signalsAssetArr[i];
+        asset.innerHTML = signalsAsset;
+    } datagtmidClass
+
+    var datagtmidArr = document.getElementsByClassName("datagtmidClass");
+    for (var i = 0; i < datagtmidArr.length; i++) {
+        var datagtmid = datagtmidArr[i];
+        datagtmid.setAttribute("data-gtmid", data-gtmid);
+    } 
+
+    if (window.location.pathname == "/economic-calendar") {
+        document.getElementById('signalsTitleCalendarLink').style.display = "none";
+        document.getElementById('signalsTitleWithoutLink'),style.display = "block";
+    }
+
+    // end update data
+
+    // push deviation and actual
+
     setTimeout(function () {
         console.log("Starting..");
         var config = {
@@ -311,17 +332,20 @@
         var push = FXStreetPush.PushNotification.getInstance(config);
         var SetStandardDeviationAndBoundaries = function (data) {
             console.log(data);
-            //if (data.EventDateId == eventDateId) {
-            document.getElementById("signalsStandardDeviationId").innerHTML = data.StandardDeviation;
-            document.getElementById("signalsActualId").innerHTML = data.Actual;
-            document.getElementById("deviationId").classList.add('fxs_trigger');
-            document.getElementById("actualId").classList.add('fxs_trigger');
-            if (parseFloat(data.StandardDeviation) < signalsNegativeTrigger)
-                document.getElementById("signalsNegativeTriggerId").classList.add('fxs_trigger');
-            if (parseFloat(data.StandardDeviation) > signalsPositiveTrigger)
-                document.getElementById("signalsPositiveTriggerId").classList.add('fxs_trigger');
-            //}
+            if (data.EventDateId == eventDateId) {
+                document.getElementById("signalsStandardDeviationId").innerHTML = data.StandardDeviation;
+                document.getElementById("signalsActualId").innerHTML = data.Actual;
+                document.getElementById("deviationId").classList.add('fxs_trigger');
+                document.getElementById("actualId").classList.add('fxs_trigger');
+                if (parseFloat(data.StandardDeviation) < signalsNegativeTrigger)
+                    document.getElementById("signalsNegativeTriggerId").classList.add('fxs_trigger');
+                if (parseFloat(data.StandardDeviation) > signalsPositiveTrigger)
+                    document.getElementById("signalsPositiveTriggerId").classList.add('fxs_trigger');
+            }
         };
         push.marketImpactSubscribe(SetStandardDeviationAndBoundaries);
     }, millisecondsToWait);
+
+    // end push deviation and actual
+
 </script>
