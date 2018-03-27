@@ -1,5 +1,5 @@
 <script>
-    var data-gtmid="ecocalsignals-14"
+    var datagtmidVar="ecocalsignals-14"
     var eventDateId = '54b6ac72-d631-4c6f-85c1-c7a98d86e812';
     var signalsTitle = "UK Retail Sales (YoY)";
     var signalsAsset = "GBP/USD";
@@ -37,10 +37,6 @@
         margin: 0;
         background-color: #8c8d91;
         color: white;
-    }
-
-    #signalsTitleWithoutLink {
-        display: none;
     }
 
     .marquetImpactSignals .fxs_subsectionTitle a {
@@ -150,7 +146,7 @@
             <span class="fa fa-angle-double-right"></span>
         </a>
     </h3>
-    <h3 class="fxs_subsectionTitle" id="signalsTitleWithoutLink">
+    <h3 class="fxs_subsectionTitle fxs_hideElements" id="signalsTitleWithoutLink">
         Trading opportunities
     </h3>
     <div class="fxs_col_100 fxs_bordered_container">
@@ -185,7 +181,7 @@
             <div class="fxs_col fxs_col_50" id="signalsPositiveTriggerId">
                 <p>
                     <em>
-                        Positive Trigger <span id="signalsPositiveTriggerLabelId"></span> :
+                        Positive Trigger <span id="signalsPositiveTriggerLabelId"></span>
                     </em>
                     <br />
                     <span class="fa fa-chevron-right"></span>
@@ -205,7 +201,7 @@
             <div class="fxs_col fxs_col_50" id="signalsNegativeTriggerId">
                 <p>
                     <em>
-                        Negative Trigger <span id="signalsNegativeTriggerLabelId"></span>:
+                        Negative Trigger <span id="signalsNegativeTriggerLabelId"></span>
                     </em>
                     <br />
                     <span class="fa fa-chevron-left">
@@ -250,11 +246,11 @@
             </div>
         </div>
         <button type="button" class="fxs_btn fxs_btn_content_toggle fxs_btn_content_toggle_collapse fxs_btn_block btn collapsed fxs_btn_cta" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin:0;">
-            <span class="fxs_togglebtn_txt init_txt" class="datagtmidClass">
+            <span class="fxs_togglebtn_txt init_txt datagtmidClass">
                 Check Entry Points
                 <span class="fa fa-chevron-down"> </span>
             </span>
-            <span class="fxs_togglebtn_txt toggled_txt" class="datagtmidClass">
+            <span class="fxs_togglebtn_txt toggled_txt datagtmidClass">
                 Hide content
                 <span class="fa fa-chevron-up"> </span>
             </span>
@@ -305,17 +301,17 @@
     for (var i = 0; i < signalsAssetArr.length; i++) {
         var asset = signalsAssetArr[i];
         asset.innerHTML = signalsAsset;
-    } datagtmidClass
+    } 
 
     var datagtmidArr = document.getElementsByClassName("datagtmidClass");
     for (var i = 0; i < datagtmidArr.length; i++) {
         var datagtmid = datagtmidArr[i];
-        datagtmid.setAttribute("data-gtmid", data-gtmid);
+        datagtmid.setAttribute("data-gtmid", datagtmidVar);
     } 
 
     if (window.location.pathname == "/economic-calendar") {
-        document.getElementById('signalsTitleCalendarLink').style.display = "none";
-        document.getElementById('signalsTitleWithoutLink'),style.display = "block";
+        document.getElementById('signalsTitleCalendarLink').classList.add('fxs_hideElements');
+        document.getElementById('signalsTitleWithoutLink').classList.remove('fxs_hideElements');
     }
 
     // end update data
