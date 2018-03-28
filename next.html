@@ -295,13 +295,14 @@
     }
     // end update data
     // push deviation and actual
-    setInterval(function () {
+    updateCountDown = function () {
         var now = new Date();
         var millisecondsDiff = signalsEventDateObj.getMilliseconds() - now.getMilliseconds();
         var minutesDiff = millisecondsDiff / 60000;
         document.getElementById('signalsCountDownId').innerHTML = minutesDiff;
-
-    }, 60000)
+    }
+    updateCountDown();
+    setInterval(updateCountDown, 60000);
     setTimeout(function () {
         console.log("Starting..");
         var config = {
