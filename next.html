@@ -24,7 +24,6 @@
 
 </script>
 <style>
-
     .marquetImpactSignals .fxs_subsectionTitle {
         display: block;
         width: 100%;
@@ -37,18 +36,9 @@
         font-style: normal;
     }
 
-    .marquetImpactSignals table tbody tr,
-    .marquetImpactSignals table tbody {
-        position: relative;
-    }
-
-        .marquetImpactSignals table tbody tr.fxs_absolute {
-            position: absolute;
+        .marquetImpactSignals .fxs_subsectionTitle a {
+            color: white;
         }
-
-    .marquetImpactSignals .fxs_subsectionTitle a {
-        color: white;
-    }
 
     .marquetImpactSignals .fxs_trigger {
         background-color: #f6dbc4;
@@ -61,6 +51,24 @@
     .marquetImpactSignals .fa-chevron-left {
         color: #d25746;
     }
+
+    .marquetImpactSignals .fxs_col_20 {
+        width: 100%;
+    }
+
+
+    .marquetImpactSignals .fxs_bodyDataRow {
+        position: relative;
+    }
+
+        .marquetImpactSignals .fxs_bodyDataRow .fxs_overlay {
+            position: absolute;
+            left: 20%;
+            top: 0;
+            width: 60%;
+            background-color: #F0F0F1;
+            overflow: hidden;
+        }
 </style>
 <div class="fxs_hidden_s marquetImpactSignals">
     <!--Header with Link appears everywhere except on ecocal-->
@@ -72,7 +80,6 @@
                 </a>
                 <span> in </span>
                 <span id="signalsCountDownId"></span>
-                <span> minutes </span>
             </i>
         </span>
         <span class="fxs_fRight">
@@ -88,7 +95,6 @@
         <span class="fxs_fleft">
             <i>
                 <strong id="signalsTitleId"></strong>
-                <span> in </span>
                 <span id="signalsCountDownId"></span>
                 <span> minutes </span>
             </i>
@@ -102,128 +108,115 @@
     </h3>
     <!--Header without Link appears only on ecocal-->
 
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    TRIGGER
-                </th>
-                <th>
-                    ENTRY POINT
-                </th>
-                <th>
-                    STOP LOSS
-                </th>
-                <th>
-                    TAKE PROFFIT
-                </th>
-                <th>
+    <div class="fxs_col_100 fxs_header">
 
-                </th>
-            </tr>
-        </thead>
-        <tbody>
+        <div class="fxs_col_20">
+            TRIGGER
+        </div>
+        <div class="fxs_col_20">
+            <strong>ENTRY POINT</strong>
+        </div>
+        <div class="fxs_col_20">
+            <strong>STOP LOSS</strong>
+        </div>
+        <div class="fxs_col_20">
+            <strong>TAKE PROFFIT</strong>
+        </div>
+        <div class="fxs_col_20"></div>
 
-            <tr>
-                <td>
-                    <span class="fa fa-chevron-right"></span>
-                    <span id="signalsPositiveTriggerActualId"></span>
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="fxs_absolute">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button>
-                        Sell
-                    </button>
-                </td>
-            </tr>
+    </div>
 
-            <tr>
-                <td>
-                    <span class="fa fa-chevron-left"></span>
-                    <span id="signalsNegativeTriggerActualId"></span>
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="fxs_absolute">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button>
-                        Buy
-                    </button>
-                </td>
-            </tr>
+    <div class="fxs_bodyData">
+        <div class="fxs_bodyDataRow">
+            <div class="fxs_col_20">
+                <span class="fa fa-chevron-right"></span>
+                <span id="signalsPositiveTriggerActualId"></span>
+            </div>
+            <div class="fxs_col_20">14.2134</div>
+            <div class="fxs_col_20">14.2134</div>
+            <div class="fxs_col_20">14.2134</div>
+            <div class="fxs_col_20">
+                <button>
+                    Sell
+                </button>
+            </div>
+            <div class="fxs_overlay">
+                Show Signal Values
+                <span class="fa fa-chevron-circle-right"></span>
+            </div>
+        </div>
+        <div class="fxs_bodyDataRow">
+            <div class="fxs_col_20">
+                <span class="fa fa-chevron-left"></span>
+                <span id="signalsNegativeTriggerActualId"></span>
+            </div>
+            <div class="fxs_col_20">14.2134</div>
+            <div class="fxs_col_20">14.2134</div>
+            <div class="fxs_col_20">14.2134</div>
+            <div class="fxs_col_20">
+                <button>
+                    Buy
+                </button>
+            </div>
+            <div class="fxs_overlay">
+                Show Signal Values
+                <span class="fa fa-chevron-circle-right"></span>
+            </div>
+        </div>
+    </div>
+</div>
 
-        </tbody>
+<script>
 
-    </table>
+    document.getElementById('signalsTitleId').innerHTML = signalsTitle;
+    if (signalsActualBase) {
+        signalsActual = signalsActualPrefix + signalsActualBase + signalsActualSuffix;
+        document.getElementById("signalsActualId").innerHTML = signalsActual;
+    } else {
+        document.getElementById("signalsActualId").innerHTML = "?";
+    }
 
 
-    <script>
+    document.getElementById("signalsPositiveTriggerActualId").innerHTML = signalsPositiveTriggerActual;
+    document.getElementById("signalsNegativeTriggerActualId").innerHTML = signalsNegativeTriggerActual;
 
-        document.getElementById('signalsTitleId').innerHTML = signalsTitle;
-        if (signalsActualBase) {
-            signalsActual = signalsActualPrefix + signalsActualBase + signalsActualSuffix;
-            document.getElementById("signalsActualId").innerHTML = signalsActual;
+
+
+
+    var datagtmidArr = document.getElementsByClassName("datagtmidClass");
+    for (var i = 0;
+        i < datagtmidArr.length;
+        i++) {
+        var datagtmid = datagtmidArr[i];
+        datagtmid.setAttribute("data-gtmid", datagtmidVar);
+    }
+
+    if (window.location.pathname == "/economic-calendar") {
+        document.getElementById('signalsTitleCalendarLink').classList.add('fxs_hideElements');
+        document.getElementById('signalsTitleWithoutLink').classList.remove('fxs_hideElements');
+    }
+    // end update data
+
+    var signalsEventDateObj = new Date(signalsGTM.year, (signalsGTM.month - 1), signalsGTM.day, signalsGTM.hour, signalsGTM.minute);
+
+    updateCountDown = function () {
+        var now = new Date();
+        var eventMilliseconds = signalsEventDateObj.getTime();
+        var nowMilliseconds = now.getTime();
+        var millisecondsDiff = eventMilliseconds - nowMilliseconds;
+        console.log(eventMilliseconds);
+        console.log(nowMilliseconds);
+        console.log(millisecondsDiff);
+        var minutesDiff = parseInt(millisecondsDiff / 60000);
+        if (minutesDiff > 0) {
+            document.getElementById('signalsCountDownId').innerHTML = " in " + minutesDiff + " minutes";
         } else {
-            document.getElementById("signalsActualId").innerHTML = "?";
+            document.getElementById('signalsCountDownId').innerHTML = "Going";
         }
+    }
 
+    updateCountDown();
 
-        document.getElementById("signalsPositiveTriggerActualId").innerHTML = signalsPositiveTriggerActual;
-        document.getElementById("signalsNegativeTriggerActualId").innerHTML = signalsNegativeTriggerActual;
+    setInterval(updateCountDown, 60000);
 
-
-
-
-        var datagtmidArr = document.getElementsByClassName("datagtmidClass");
-        for (var i = 0;
-            i < datagtmidArr.length;
-            i++) {
-            var datagtmid = datagtmidArr[i];
-            datagtmid.setAttribute("data-gtmid", datagtmidVar);
-        }
-
-        if (window.location.pathname == "/economic-calendar") {
-            document.getElementById('signalsTitleCalendarLink').classList.add('fxs_hideElements');
-            document.getElementById('signalsTitleWithoutLink').classList.remove('fxs_hideElements');
-        }
-        // end update data
-
-        var signalsEventDateObj = new Date(signalsGTM.year, (signalsGTM.month - 1), signalsGTM.day, signalsGTM.hour, signalsGTM.minute);
-
-        updateCountDown = function () {
-            var now = new Date();
-            var eventMilliseconds = signalsEventDateObj.getTime();
-            var nowMilliseconds = now.getTime();
-            var millisecondsDiff = eventMilliseconds - nowMilliseconds;
-            console.log(eventMilliseconds);
-            console.log(nowMilliseconds);
-            console.log(millisecondsDiff);
-            var minutesDiff = parseInt(millisecondsDiff / 60000);
-            if (minutesDiff > 0) {
-                document.getElementById('signalsCountDownId').innerHTML = minutesDiff;
-            } else {
-                document.getElementById('signalsCountDownId').innerHTML = "Going";
-            }
-        }
-
-        updateCountDown();
-
-        setInterval(updateCountDown, 60000);
-
-    </script>
+</script>
