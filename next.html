@@ -7,8 +7,8 @@
         day: 28,
         month: 3,
         year: 2018,
-        hour: 15,
-        minute: 30
+        hour: 16,
+        minute: 00
     };
     var signalsStandardDeviation = "?";
     var signalsPositiveTriggerDeviation = 0.37;
@@ -304,7 +304,7 @@
         console.log(eventMilliseconds);
         console.log(nowMilliseconds);
         console.log(millisecondsDiff);
-        var minutesDiff = parseInt(millisecondsDiff / 60);
+        var minutesDiff = parseInt(millisecondsDiff / 60000);
         document.getElementById('signalsCountDownId').innerHTML = minutesDiff;
     }
     updateCountDown();
