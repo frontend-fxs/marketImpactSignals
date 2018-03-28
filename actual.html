@@ -288,8 +288,8 @@
     document.getElementById("signalsNegativeTriggerLabelId").innerHTML = signalsNegativeTriggerLabel;
     //document.getElementById("signalsNegativeTriggerActualId").innerHTML = signalsNegativeTriggerActual;
 
-    document.getElementById("signalsResistanceId").innerHTML = signalsResistance;
-    document.getElementById("signalsSupportId").innerHTML = signalsSupport;
+    document.getElementById("signalsResistanceId").innerHTML = signalsResistance.toFixed().toString();
+    document.getElementById("signalsSupportId").innerHTML = signalsSupport.toFixed().toString();
 
     document.getElementById("signalsDescriptionId").innerHTML = "";
     for (var i = 0; i < signalsDescription.length; i++) {
