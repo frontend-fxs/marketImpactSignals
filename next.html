@@ -297,7 +297,12 @@
     // push deviation and actual
     updateCountDown = function () {
         var now = new Date();
-        var millisecondsDiff = signalsEventDateObj.getMilliseconds() - now.getMilliseconds();
+        var eventMilliseconds = signalsEventDateObj.getMilliseconds();
+        var nowMilliseconds = now.getMilliseconds();
+        var millisecondsDiff = eventMilliseconds - nowMilliseconds;
+        console.log(eventMilliseconds);
+        console.log(nowMilliseconds);
+        console.log(millisecondsDiff);
         var minutesDiff = parseInt(millisecondsDiff / 60);
         document.getElementById('signalsCountDownId').innerHTML = minutesDiff;
     }
