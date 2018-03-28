@@ -298,8 +298,8 @@
     // push deviation and actual
     updateCountDown = function () {
         var now = new Date();
-        var eventMilliseconds = signalsEventDateObj.getMilliseconds();
-        var nowMilliseconds = now.getMilliseconds();
+        var eventMilliseconds = signalsEventDateObj.getTime();
+        var nowMilliseconds = now.getTime();
         var millisecondsDiff = eventMilliseconds - nowMilliseconds;
         console.log(eventMilliseconds);
         console.log(nowMilliseconds);
