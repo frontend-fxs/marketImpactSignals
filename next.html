@@ -160,14 +160,7 @@
             <span id="signalsActualId"></span>
         </strong>
     </h3>
-    <h3 class="fxs_subsectionTitle" id="signalsTitleCalendarLink">
-        <a href="https://www.fxstreet.com/economic-calendar" class="datagtmidClass">
-            Trading opportunities <span class="fa fa-angle-double-right"></span>
-        </a>
-    </h3>
-    <h3 class="fxs_subsectionTitle fxs_hideElements" id="signalsTitleWithoutLink">
-
-    </h3>
+    
     <div class="fxs_col_100 fxs_bordered_container">
         <div style="width:24%;" class="fxs_headCell">
 
@@ -306,6 +299,8 @@
         var now = new Date();
         var millisecondsDiff = signalsEventDateObj.getMilliseconds() - now.getMilliseconds();
         var minutesDiff = millisecondsDiff / 60000;
+        document.getElementById('signalsCountDownId').innerHTML = minutesDiff;
+
     }, 60000)
     setTimeout(function () {
         console.log("Starting..");
