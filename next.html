@@ -46,6 +46,7 @@
         margin: 0;
         background-color: #8c8d91;
         color: white;
+        font-weight: normal;
     }
 
         .marquetImpactSignals .fxs_subsectionTitle a {
@@ -147,6 +148,7 @@
         }
 </style>
 <div class="fxs_hidden_s marquetImpactSignals">
+
     <h3 class="fxs_subsectionTitle" id="signalsTitleCalendarLink">
         <span class="fxs_fleft">
             <a href="https://www.fxstreet.com/economic-calendar" class="datagtmidClass">
@@ -163,7 +165,23 @@
             </strong>
         </span>
     </h3>
-    
+
+    <h3 class="fxs_subsectionTitle" id="signalsTitleWithoutLink">
+        <span class="fxs_fleft">
+            <strong id="signalsTitleId"></strong>
+            <span> in </span>
+            <span id="signalsCountDownId"></span>
+            <span> minutes </span>
+        </span>
+        <span class="fxs_fRight">
+            <strong>
+                <span>Actual:</span>
+                <span id="signalsActualId"></span>
+            </strong>
+        </span>
+    </h3>
+
+
     <div class="fxs_col_100 fxs_bordered_container">
         <div style="width:24%;" class="fxs_headCell">
 
@@ -176,7 +194,7 @@
                 Deviation: <span id="signalsStandardDeviationId"></span>
             </p>
         </div>
-        
+
         <div style="width:20%;" class="fxs_headCell">
             <p> Consensus: <span id="signalsConsensusId"></span>% </p>
         </div>
