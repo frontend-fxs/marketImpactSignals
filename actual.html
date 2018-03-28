@@ -14,6 +14,7 @@
     var signalsPositiveTriggerActual = 0.1;
     var signalsNegativeTriggerActual = -0.1;
     var signalsConsensus = 2.7;
+    var signalsDecimals = 4;
     var signalsResistance = 1.2420;
     var signalsSupport = 1.2360;
     var signalsFeatured = "If US GDP Annualized comes out at higher than expected with a deviation of +0,37 or higher, the pair may go down reaching a range of 41 pips in the first 15 minutes and 83 pips in the following 4 hours. If it comes out lower than expected at a deviation of -0,51 or less, the EUR/USD may up reaching a range of 36 pips in the first 15 minutes and 74 pips in the following 4 hours.";
@@ -290,8 +291,8 @@
     document.getElementById("signalsNegativeTriggerLabelId").innerHTML = signalsNegativeTriggerLabel;
     //document.getElementById("signalsNegativeTriggerActualId").innerHTML = signalsNegativeTriggerActual;
 
-    document.getElementById("signalsResistanceId").innerHTML = signalsResistance.toFixed(4).toString();
-    document.getElementById("signalsSupportId").innerHTML = signalsSupport.toFixed(4).toString();
+    document.getElementById("signalsResistanceId").innerHTML = signalsResistance.toFixed(signalsDecimals).toString();
+    document.getElementById("signalsSupportId").innerHTML = signalsSupport.toFixed(signalsDecimals).toString();
 
     document.getElementById("signalsDescriptionId").innerHTML = "";
     for (var i = 0; i < signalsDescription.length; i++) {
