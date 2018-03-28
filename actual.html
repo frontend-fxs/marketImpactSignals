@@ -11,9 +11,9 @@
     var signalsStandardDeviation = "?";
     var signalsPositiveTriggerDeviation = 0.37;
     var signalsNegativeTriggerDeviation = -0.51;
-    var signalsActual = "?";
-    var signalsActualPrefix = "&euro;";
-    var signalsActualSuffix = "$";
+    var signalsActualBase = false;
+    var signalsActualPrefix = "";
+    var signalsActualSuffix = "%";
     var signalsPositiveTriggerActual = 0.1;
     var signalsNegativeTriggerActual = -0.1;
     var signalsConsensus = 2.7;
@@ -28,8 +28,8 @@
         "From a positioning perspective, supply is noted at 1.2450 and above.1.2555. Vestiges of demand can be seen around 1.2320 and below at 1.2280, based on aggregated trading positions from FXStreet's dedicated contributors.",
         "Only 20% of EUR-based pairs are in bullish mode against a basket of 20 world currencies accordingly to the EUR-Bullish Percentage Index. As such, a release which surprises the market with a negative trigger (USD negative) may lead to a stronger up move in the EUR/USD."
     ];
-    var signalsPositiveTriggerLabel = "[BUY " + signalsAsset + "]";
-    var signalsNegativeTriggerLabel = "[SELL " + signalsAsset + "]";
+    var signalsPositiveTriggerLabel = "[SELL " + signalsAsset + "]";
+    var signalsNegativeTriggerLabel = "[BUY " + signalsAsset + "]";
 </script>
 <style>
     .marquetImpactSignals .fxs_subsectionTitle {
@@ -271,6 +271,14 @@
     document.getElementById("signalsActualId").innerHTML = signalsActual;
     document.getElementById("signalsConsensusId").innerHTML = signalsConsensus;
 
+    if (signalsActualBase) {
+        signalsActual = signalsActualPrefix + signalsActualBase + signalsActualSuffix;
+        document.getElementById("signalsActualId").innerHTML = signalsActual;
+    } else {
+        document.getElementById("signalsActualId").innerHTML = "?";
+
+    }
+
     document.getElementById("signalsFeaturedId").innerHTML = signalsFeatured;
 
     document.getElementById("signalsPositiveTriggerDeviationId").innerHTML = signalsPositiveTriggerDeviation;
@@ -289,17 +297,6 @@
         document.getElementById("signalsDescriptionId").innerHTML += "<p>" + signalsDescription[i] + "</p>";
     }
 
-    var signalsActualPrefixArr = document.getElementsByClassName("signalsActualPrefixClass");
-    for (var i = 0; i < signalsActualPrefixArr.length; i++) {
-        var actualPrefix = signalsActualPrefixArr[i];
-        actualPrefix.innerHTML = signalsActualPrefix;
-    }
-
-    var signalsActualSuffixArr = document.getElementsByClassName("signalsActualSuffixClass");
-    for (var i = 0; i < signalsActualSuffixArr.length; i++) {
-        var actualSuffix = signalsActualSuffixArr[i];
-        actualSuffix.innerHTML = signalsActualSuffix;
-    }
 
     var signalsAssetArr = document.getElementsByClassName("signalsAssetClass");
     for (var i = 0; i < signalsAssetArr.length; i++) {
