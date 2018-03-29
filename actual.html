@@ -331,20 +331,17 @@
             }
         };
         push.marketImpactSubscribe(SetStandardDeviationAndBoundaries);
-        console.log("utcNow"+utcNow);
-        console.log("eventDateUtcTime"+eventDateUtcTime);
-        if (utcNow >= eventDateUtcTime) {
+
+        var nowMilliseconds = new Date(utcNow).getTime();
+        var eventDateMilliseconds = new Date(eventDateUtcTime).getTime();
+        if (nowMilliseconds >= eventDateMilliseconds) {
             $.ajax({
                 headers: {
                     "Accept": "application/json",//depends on your api
                     "Content-type": "application/x-www-form-urlencoded"//depends on your api
                 }, url: calendarApiUrl + eventDateId,
                 success: function (response) {
-                    if (response.EventName !== null) {
-                        console.log(response);
-                        setFrontEndVariables(response.StandardDeviationRatio, response.Actual)
-
-                    }
+                    setFrontEndVariables(response.StandardDeviationRatio, response.Actual);
                 }
             });
         }
