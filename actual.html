@@ -331,6 +331,8 @@
             }
         };
         push.marketImpactSubscribe(SetStandardDeviationAndBoundaries);
+        console.log("utcNow"+utcNow);
+        console.log("eventDateUtcTime"+eventDateUtcTime);
         if (utcNow >= eventDateUtcTime) {
             $.ajax({
                 headers: {
