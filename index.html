@@ -105,9 +105,14 @@
         </div>
 </body>
 <script>
-    $.get('./actual.html', function (template) {
-        var rendered = Mustache.render(template);
-        $('#target').html(rendered);
-    });
+    var time = setInterval(function () {
+        $.get('./actual.html', function (template) {
+            var rendered = Mustache.render(template);
+            $('#target').html(rendered);
+        }).done(function () {
+            clearInterval(time);
+        });
+    }, 1000);
+
 </script>
 </html>

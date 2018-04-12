@@ -1,13 +1,13 @@
 <script>
-    var eventDateId = 'c8e75081-4d7e-4ca3-b29b-968f71a5d480';
+    var eventDateId = '3119cab1-80c2-4526-8900-9eda195c32bc';
     var datagtmidVar = "ecocalsignals-16"
     var signalsTitle = "UK GDP (YoY)";
     var signalsAsset = "GBP/USD";
     var signalsGTM = "8:30";
-    var signalsStandardDeviation = "?";
+    var signalsStandardDeviation = 0;
     var signalsPositiveTriggerDeviation = 0.85;
     var signalsNegativeTriggerDeviation = -0.74;
-    var signalsActualBase = false;
+    var signalsActualBase = 1.4;
     var signalsActualPrefix = "";
     var signalsActualSuffix = "%";
     var signalsPositiveTriggerActual = false;
@@ -28,8 +28,8 @@
     var signalsPositiveTriggerLabel = "[BUY " + signalsAsset + "]";
     var signalsNegativeTriggerLabel = "[SELL " + signalsAsset + "]";
     var millisecondsToWait = 1000;
-    var eventDateUtcTime = "2018-03-29T08:30:00.000Z";
-    var calendarApiUrl = "http://calendar.fxstreet.com/v4.1/MarketImpactSignalPoc/Get?eventDateId=";
+    var eventDateUtcTime = "2018-03-28T08:30:00.000Z";
+    var calendarApiUrl = "https://calendar.fxstreet.com/v4.1/MarketImpactSignalPoc/Get?eventDateId=";
     var now = new Date();
     var utcNow = now.toISOString();
 </script>
@@ -160,12 +160,12 @@
         <div style="width:16%;" class="fxs_headCell">
             <p>GMT: <span id="signalsGTMId"></span></p>
         </div>
-        <div style="width:18%;" class="fxs_headCell" id="deviationId">
+        <div style="width:18%;" class="fxs_headCell fxs_trigger" id="deviationId">
             <p>
                 Deviation: <span id="signalsStandardDeviationId"></span>
             </p>
         </div>
-        <div style="width:22%;" class="fxs_headCell" id="actualId">
+        <div style="width:22%;" class="fxs_headCell fxs_trigger" id="actualId">
             <p>
                 Actual:
                 <span class="signalsActualPrefixClass"></span>
@@ -255,17 +255,18 @@
                 <div id="signalsDescriptionId"></div>
             </div>
         </div>
-        <button type="button" class="fxs_btn fxs_btn_content_toggle fxs_btn_content_toggle_collapse fxs_btn_block btn collapsed fxs_btn_cta datagtmidClass" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin:0;">
-            <span class="fxs_togglebtn_txt init_txt">
+        <button type="button" class="fxs_btn fxs_btn_content_toggle fxs_btn_content_toggle_collapse fxs_btn_block btn collapsed fxs_btn_cta" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin:0;">
+            <span class="fxs_togglebtn_txt init_txt datagtmidClass">
                 Check Entry Points
                 <span class="fa fa-chevron-down"> </span>
             </span>
-            <span class="fxs_togglebtn_txt toggled_txt">
+            <span class="fxs_togglebtn_txt toggled_txt datagtmidClass">
                 Hide content
                 <span class="fa fa-chevron-up"> </span>
             </span>
         </button>
     </div>
+    <hr class="fxs_divider_third">
 </div>
 <script>
     // Update data
@@ -318,6 +319,7 @@
         if (parseFloat(deviationRatio) > signalsPositiveTriggerDeviation)
             document.getElementById("signalsPositiveTriggerId").classList.add('fxs_trigger');
     }
+    /*
     setTimeout(function () {
         console.log("Starting..");
         var config = {
@@ -331,20 +333,20 @@
             }
         };
         push.marketImpactSubscribe(SetStandardDeviationAndBoundaries);
-
-        var nowMilliseconds = new Date(utcNow).getTime();
-        var eventDateMilliseconds = new Date(eventDateUtcTime).getTime();
-        if (nowMilliseconds >= eventDateMilliseconds) {
+        if (utcNow >= eventDateUtcTime) {
             $.ajax({
                 headers: {
                     "Accept": "application/json",//depends on your api
                     "Content-type": "application/x-www-form-urlencoded"//depends on your api
                 }, url: calendarApiUrl + eventDateId,
                 success: function (response) {
-                    setFrontEndVariables(response.StandardDeviationRatio, response.Actual);
+                    if (response.EventName !== null) {
+                        console.log(response);
+                        setFrontEndVariables(response.StandardDeviationRatio, response.Actual)
+                    }
                 }
             });
         }
-    }, millisecondsToWait);
+    }, millisecondsToWait);*/
     // end push deviation and actual
 </script>

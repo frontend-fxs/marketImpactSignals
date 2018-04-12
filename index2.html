@@ -88,7 +88,7 @@
 
                                             <div class="fxs_col_67">
                                                 <div id="target">
-                                                   Loading ...
+                                                    Loading ...
                                                 </div>
                                             </div>
 
@@ -104,9 +104,13 @@
         </div>
 </body>
 <script>
-    $.get('./next.html', function (template) {
-        var rendered = Mustache.render(template);
-        $('#target').html(rendered);
-    });
+    var time = setInterval(function () {
+        $.get('./next.html', function (template) {
+            var rendered = Mustache.render(template);
+            $('#target').html(rendered);
+        }).done(function () {
+            clearInterval(time);
+        });
+    }, 1000);
 </script>
 </html>
