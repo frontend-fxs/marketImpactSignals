@@ -99,7 +99,6 @@
     <Content Include="backup.html" />
     <Content Include="index2.html" />
     <Content Include="index.html" />
-    <Content Include="index3.html" />
     <Content Include="next.html" />
   </ItemGroup>
   <ItemGroup>
