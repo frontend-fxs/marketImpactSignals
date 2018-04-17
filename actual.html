@@ -319,6 +319,10 @@
         if (parseFloat(deviationRatio) > signalsPositiveTriggerDeviation)
             document.getElementById("signalsPositiveTriggerId").classList.add('fxs_trigger');
     }
+
+    setTimeout(function () {
+        setFrontEndVariables(1.3421, 1.022);
+    }, 3000);
     /*
     setTimeout(function () {
         console.log("Starting..");
